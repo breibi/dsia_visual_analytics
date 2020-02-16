@@ -1,3 +1,5 @@
-# dsia_visual_analytics
+## Visual Analytics Project for Analyzing Email Marketing Data
 
-## chapter 1
+- newsletter clicks by weekday
+- newsletter clicks during hours of day
+- display geo locations of clicks with vaex
