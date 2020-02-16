@@ -3,3 +3,7 @@ sample_data_large.csv
 sample_data.csv
 data/file_01.csv
 data/file_02.csv
+config
+data
+.vscode/
+.ipynb_checkpoints/
