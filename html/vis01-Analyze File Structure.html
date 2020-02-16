@@ -13134,14 +13134,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)):</span>
     <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-    <span class="n">files</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">files</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">filename</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">)]])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">files</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">files</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;file&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span><span class="o">/</span><span class="mi">1024</span><span class="p">)]])],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">files</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;size [KB]&#39;</span><span class="p">]</span>
 <span class="n">files</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13157,7 +13156,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13186,28 +13185,28 @@ div#notebook {
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>SAS-Full-Raw-Data-Export-SCO-2015-generic-28060-2019_08_13_16_39_17.100.csv.gz</td>
+      <td>0</td>
+      <td>file0.csv</td>
       <td>97671</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>SAS-Full-Raw-Data-Export-SCO-2015-generic-28060-2019_08_13_16_39_17.10.csv.gz</td>
+      <td>1</td>
+      <td>file1.csv</td>
       <td>97677</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>SAS-Full-Raw-Data-Export-SCO-2015-generic-28060-2019_08_13_16_39_17.101.csv.gz</td>
+      <td>2</td>
+      <td>file2.csv</td>
       <td>97681</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>SAS-Full-Raw-Data-Export-SCO-2015-generic-28060-2019_08_13_16_39_17.102.csv.gz</td>
+      <td>3</td>
+      <td>file3.csv</td>
       <td>97670</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>SAS-Full-Raw-Data-Export-SCO-2015-generic-28060-2019_08_13_16_39_17.103.csv.gz</td>
+      <td>4</td>
+      <td>file4.csv</td>
       <td>97678</td>
     </tr>
   </tbody>
@@ -13223,7 +13222,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of Files: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)))</span>
@@ -13268,7 +13267,7 @@ Total Size: 22416 MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmp_file</span> <span class="o">=</span> <span class="s1">&#39;.</span><span class="se">\\</span><span class="s1">data</span><span class="se">\\</span><span class="s1">tmp.csv&#39;</span>
@@ -13291,157 +13290,20 @@ Total Size: 22416 MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="column-names">column names<a class="anchor-link" href="#column-names">&#182;</a></h2>
+<p>drop columns with all NA values</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>user.Id                                                    int64
-user.Email                                                object
-user.MobileNumber                                        float64
-user.FaxNumber                                           float64
-user.Identifier                                           object
-sentToMTA.Timestamp                                       object
-sentToMTA.ExternalTransactionId                          float64
-sentToMTA.SendoutChannel                                  object
-skip.Timestamp                                            object
-skip.Category                                             object
-skip.ExternalTransactionId                               float64
-bounce.Timestamp                                          object
-bounce.Category                                           object
-feedback.Timestamp                                       float64
-feedback.Category                                        float64
-render.Timestamp                                          object
-render.GeoLocation.ISOCountryCode                         object
-render.GeoLocation.RegionCode                             object
-render.GeoLocation.City                                   object
-render.GeoLocation.Latitude                              float64
-render.GeoLocation.Longitude                             float64
-render.UserAgent.Platform                                 object
-render.UserAgent.OperatingSystemName                      object
-render.UserAgent.OperatingSystemVersion                   object
-render.UserAgent.ClientName                               object
-render.UserAgent.ClientVersion                            object
-render.UserAgent.RawString                                object
-click.Timestamp                                           object
-click.Link.Id                                            float64
-click.Link.Category.Id                                   float64
-click.Link.Category.Name                                  object
-click.Link.Url                                            object
-click.Link.SystemLinkType                                float64
-click.Link.Type                                           object
-click.GeoLocation.ISOCountryCode                          object
-click.GeoLocation.RegionCode                              object
-click.GeoLocation.City                                    object
-click.GeoLocation.Latitude                               float64
-click.GeoLocation.Longitude                              float64
-click.UserAgent.Platform                                  object
-click.UserAgent.OperatingSystem                           object
-click.UserAgent.OperatingSystemVersion                    object
-click.UserAgent.ClientName                                object
-click.UserAgent.ClientVersion                             object
-click.UserAgent.RawString                                 object
-unsubscribe.Timestamp                                     object
-forward.Timestamp                                        float64
-conversion.cp.Timestamp                                  float64
-conversion.cp.Id                                         float64
-conversion.cp.Name                                       float64
-conversion.cp.OrderId                                    float64
-conversion.cp.ItemCount                                  float64
-conversion.cp.Amount                                     float64
-conversion.cp.RequestParameters                          float64
-group.Id                                                   int64
-group.Name                                                object
-group.Email                                               object
-group.Category.Id                                          int64
-group.Category.Name                                       object
-message.Id                                                 int64
-message.Name                                              object
-message.Category.Id                                      float64
-message.Category.Name                                    float64
-message.Subject.Unresolved                                object
-message.ExternalId                                       float64
-message.Type                                              object
-message.variation.Id                                      object
-selection.Id                                             float64
-selection.Name                                            object
-record.Timestamp                                          object
-record.Type                                               object
-record.sentToMTA.Timestamp                                object
-record.ExternalTransactionId                             float64
-sendout.Type                                              object
-sendout.AddresseeRole                                     object
-sendout.RecipientType                                     object
-user.DateOfBirth                                          object
-user.FirstName                                            object
-user.ISOCountryCode                                       object
-user.ISOLanguageCode                                      object
-user.LastName                                             object
-user.Nickname                                            float64
-user.PartnerId                                           float64
-user.Source                                               object
-user.TimeZone                                            float64
-user.Title                                               float64
-user.ZipCode                                              object
-user.CustomAttribute[&#39;BeSCity&#39;]                          float64
-user.CustomAttribute[&#39;BeSHome&#39;]                          float64
-user.CustomAttribute[&#39;BeSHome2&#39;]                         float64
-user.CustomAttribute[&#39;BeSHome3&#39;]                         float64
-user.CustomAttribute[&#39;BeSStreet&#39;]                        float64
-user.CustomAttribute[&#39;BesZip&#39;]                           float64
-user.CustomAttribute[&#39;BIC&#39;]                              float64
-user.CustomAttribute[&#39;City&#39;]                              object
-user.CustomAttribute[&#39;Coupon&#39;]                            object
-user.CustomAttribute[&#39;Coupon02&#39;]                         float64
-user.CustomAttribute[&#39;IBAN&#39;]                             float64
-user.CustomAttribute[&#39;Last_Open_Any_Newsletter_Date&#39;]     object
-user.CustomAttribute[&#39;PartnerID&#39;]                         object
-user.CustomAttribute[&#39;ProductID&#39;]                        float64
-user.CustomAttribute[&#39;SalesOrganization&#39;]                float64
-user.CustomAttribute[&#39;SCSMembernumber&#39;]                  float64
-user.CustomAttribute[&#39;SCS_Boutique&#39;]                     float64
-user.CustomAttribute[&#39;SCS_Boutique_City&#39;]                float64
-user.CustomAttribute[&#39;SCS_Boutique_Name1&#39;]               float64
-user.CustomAttribute[&#39;SCS_Boutique_Name2&#39;]               float64
-user.CustomAttribute[&#39;SCS_Boutique_Street&#39;]              float64
-user.CustomAttribute[&#39;SCS_Due_Date&#39;]                     float64
-user.CustomAttribute[&#39;SCS_Entry_Date&#39;]                   float64
-user.CustomAttribute[&#39;SCS_Expiry_Dat&#39;]                    object
-user.CustomAttribute[&#39;SCS_Magazine_Language_ISO&#39;]        float64
-user.CustomAttribute[&#39;SSFCardNumber&#39;]                    float64
-user.CustomAttribute[&#39;Street&#39;]                            object
-user.CustomAttribute[&#39;Street2&#39;]                          float64
-user.CustomAttribute[&#39;Street3&#39;]                          float64
-user.CustomAttribute[&#39;Telephone&#39;]                        float64
-user.CustomAttribute[&#39;TitleKey&#39;]                         float64
-dtype: object</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13456,10 +13318,11 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;user.Email&#39;</span><span class="p">,</span> <span class="s1">&#39;user.MobileNumber&#39;</span><span class="p">,</span> <span class="s1">&#39;user.LastName&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">chunk</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)]</span>
+<span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group.Email&#39;</span><span class="p">,</span> <span class="s1">&#39;message.Subject.Unresolved&#39;</span><span class="p">,</span> <span class="s1">&#39;message.Name&#39;</span><span class="p">])</span>
 <span class="n">chunk</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -13473,7 +13336,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -13496,19 +13359,12 @@ dtype: object</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>user.Id</th>
-      <th>user.FaxNumber</th>
-      <th>user.Identifier</th>
       <th>sentToMTA.Timestamp</th>
-      <th>sentToMTA.ExternalTransactionId</th>
       <th>sentToMTA.SendoutChannel</th>
       <th>skip.Timestamp</th>
       <th>skip.Category</th>
-      <th>skip.ExternalTransactionId</th>
       <th>bounce.Timestamp</th>
       <th>bounce.Category</th>
-      <th>feedback.Timestamp</th>
-      <th>feedback.Category</th>
       <th>render.Timestamp</th>
       <th>render.GeoLocation.ISOCountryCode</th>
       <th>render.GeoLocation.RegionCode</th>
@@ -13526,7 +13382,6 @@ dtype: object</pre>
       <th>click.Link.Category.Id</th>
       <th>click.Link.Category.Name</th>
       <th>click.Link.Url</th>
-      <th>click.Link.SystemLinkType</th>
       <th>click.Link.Type</th>
       <th>click.GeoLocation.ISOCountryCode</th>
       <th>click.GeoLocation.RegionCode</th>
@@ -13540,25 +13395,11 @@ dtype: object</pre>
       <th>click.UserAgent.ClientVersion</th>
       <th>click.UserAgent.RawString</th>
       <th>unsubscribe.Timestamp</th>
-      <th>forward.Timestamp</th>
-      <th>conversion.cp.Timestamp</th>
-      <th>conversion.cp.Id</th>
-      <th>conversion.cp.Name</th>
-      <th>conversion.cp.OrderId</th>
-      <th>conversion.cp.ItemCount</th>
-      <th>conversion.cp.Amount</th>
-      <th>conversion.cp.RequestParameters</th>
       <th>group.Id</th>
       <th>group.Name</th>
-      <th>group.Email</th>
       <th>group.Category.Id</th>
       <th>group.Category.Name</th>
       <th>message.Id</th>
-      <th>message.Name</th>
-      <th>message.Category.Id</th>
-      <th>message.Category.Name</th>
-      <th>message.Subject.Unresolved</th>
-      <th>message.ExternalId</th>
       <th>message.Type</th>
       <th>message.variation.Id</th>
       <th>selection.Id</th>
@@ -13566,74 +13407,16 @@ dtype: object</pre>
       <th>record.Timestamp</th>
       <th>record.Type</th>
       <th>record.sentToMTA.Timestamp</th>
-      <th>record.ExternalTransactionId</th>
       <th>sendout.Type</th>
       <th>sendout.AddresseeRole</th>
       <th>sendout.RecipientType</th>
-      <th>user.DateOfBirth</th>
-      <th>user.FirstName</th>
-      <th>user.ISOCountryCode</th>
-      <th>user.ISOLanguageCode</th>
-      <th>user.Nickname</th>
-      <th>user.PartnerId</th>
-      <th>user.Source</th>
-      <th>user.TimeZone</th>
-      <th>user.Title</th>
-      <th>user.ZipCode</th>
-      <th>user.CustomAttribute['BeSCity']</th>
-      <th>user.CustomAttribute['BeSHome']</th>
-      <th>user.CustomAttribute['BeSHome2']</th>
-      <th>user.CustomAttribute['BeSHome3']</th>
-      <th>user.CustomAttribute['BeSStreet']</th>
-      <th>user.CustomAttribute['BesZip']</th>
-      <th>user.CustomAttribute['BIC']</th>
-      <th>user.CustomAttribute['City']</th>
-      <th>user.CustomAttribute['Coupon']</th>
-      <th>user.CustomAttribute['Coupon02']</th>
-      <th>user.CustomAttribute['IBAN']</th>
-      <th>user.CustomAttribute['Last_Open_Any_Newsletter_Date']</th>
-      <th>user.CustomAttribute['PartnerID']</th>
-      <th>user.CustomAttribute['ProductID']</th>
-      <th>user.CustomAttribute['SalesOrganization']</th>
-      <th>user.CustomAttribute['SCSMembernumber']</th>
-      <th>user.CustomAttribute['SCS_Boutique']</th>
-      <th>user.CustomAttribute['SCS_Boutique_City']</th>
-      <th>user.CustomAttribute['SCS_Boutique_Name1']</th>
-      <th>user.CustomAttribute['SCS_Boutique_Name2']</th>
-      <th>user.CustomAttribute['SCS_Boutique_Street']</th>
-      <th>user.CustomAttribute['SCS_Due_Date']</th>
-      <th>user.CustomAttribute['SCS_Entry_Date']</th>
-      <th>user.CustomAttribute['SCS_Expiry_Dat']</th>
-      <th>user.CustomAttribute['SCS_Magazine_Language_ISO']</th>
-      <th>user.CustomAttribute['SSFCardNumber']</th>
-      <th>user.CustomAttribute['Street']</th>
-      <th>user.CustomAttribute['Street2']</th>
-      <th>user.CustomAttribute['Street3']</th>
-      <th>user.CustomAttribute['Telephone']</th>
-      <th>user.CustomAttribute['TitleKey']</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>9225239026</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>0</td>
       <td>2018-09-15T07:33:20Z</td>
-      <td>NaN</td>
       <td>EMAIL</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13670,15 +13453,9 @@ dtype: object</pre>
       <td>NaN</td>
       <td>900291830</td>
       <td>France_all</td>
-      <td>fr_all@newsletter.swarovski-newsletter.com</td>
       <td>241</td>
       <td>General</td>
       <td>2700098965</td>
-      <td>180915_fr_FR_FW18_RemixNecklaces_GwPPwP_All_no_TestN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Boîte à bijoux Remix offerte │Nouveautés : zoom sur les colliers</td>
-      <td>NaN</td>
       <td>normal</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13686,72 +13463,14 @@ dtype: object</pre>
       <td>2018-09-15T07:33:20Z</td>
       <td>SentToMTA</td>
       <td>2018-09-15T07:33:20Z</td>
-      <td>NaN</td>
       <td>MAJOR</td>
       <td>NORMAL</td>
       <td>TO</td>
-      <td>1986-06-05T02:00:00.000+0200</td>
-      <td>Tan</td>
-      <td>FR</td>
-      <td>fr</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>i</td>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BD18Q2_FR_JY8YP4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2017-12-22T06:18:59Z</td>
-      <td>C032808108</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>9225239026</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>1</td>
       <td>2018-09-04T08:46:36Z</td>
-      <td>NaN</td>
       <td>EMAIL</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13788,15 +13507,9 @@ dtype: object</pre>
       <td>NaN</td>
       <td>900291830</td>
       <td>France_all</td>
-      <td>fr_all@newsletter.swarovski-newsletter.com</td>
       <td>241</td>
       <td>General</td>
       <td>2700098092</td>
-      <td>180904_fr_FR_FW18_RemixCharms_GwPPwP_All_no_TestN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Boîte à bijoux offerte ! Comment personnaliser votre style cette saison</td>
-      <td>NaN</td>
       <td>normal</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13804,72 +13517,14 @@ dtype: object</pre>
       <td>2018-09-04T08:46:36Z</td>
       <td>SentToMTA</td>
       <td>2018-09-04T08:46:36Z</td>
-      <td>NaN</td>
       <td>MAJOR</td>
       <td>NORMAL</td>
       <td>TO</td>
-      <td>1986-06-05T02:00:00.000+0200</td>
-      <td>Tan</td>
-      <td>FR</td>
-      <td>fr</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>i</td>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BD18Q2_FR_JY8YP4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2017-12-22T06:18:59Z</td>
-      <td>C032808108</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>9225239026</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>2</td>
       <td>2018-08-29T08:46:44Z</td>
-      <td>NaN</td>
       <td>EMAIL</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13906,15 +13561,9 @@ dtype: object</pre>
       <td>NaN</td>
       <td>900291830</td>
       <td>France_all</td>
-      <td>fr_all@newsletter.swarovski-newsletter.com</td>
       <td>241</td>
       <td>General</td>
       <td>2700097824</td>
-      <td>180829_fr_FR_FW18_RemixNewCollection_GwPPwP_All_no_TestN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Boîte à bijoux offerte ! Découvrez les nouveautés Swarovski Remix Collection</td>
-      <td>NaN</td>
       <td>normal</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -13922,72 +13571,14 @@ dtype: object</pre>
       <td>2018-08-29T08:46:44Z</td>
       <td>SentToMTA</td>
       <td>2018-08-29T08:46:44Z</td>
-      <td>NaN</td>
       <td>MAJOR</td>
       <td>NORMAL</td>
       <td>TO</td>
-      <td>1986-06-05T02:00:00.000+0200</td>
-      <td>Tan</td>
-      <td>FR</td>
-      <td>fr</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>i</td>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BD18Q2_FR_JY8YP4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2017-12-22T06:18:59Z</td>
-      <td>C032808108</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>9225239026</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>3</td>
       <td>2018-08-25T08:46:01Z</td>
-      <td>NaN</td>
       <td>EMAIL</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -14024,15 +13615,9 @@ dtype: object</pre>
       <td>NaN</td>
       <td>900291830</td>
       <td>France_all</td>
-      <td>fr_all@newsletter.swarovski-newsletter.com</td>
       <td>241</td>
       <td>General</td>
       <td>2700097605</td>
-      <td>180825_fr_FR_FW18_IconicUGC_None_All_no_TestN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Découvrez l'Instagram de Swarovski</td>
-      <td>NaN</td>
       <td>normal</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -14040,72 +13625,14 @@ dtype: object</pre>
       <td>2018-08-25T08:46:01Z</td>
       <td>SentToMTA</td>
       <td>2018-08-25T08:46:01Z</td>
-      <td>NaN</td>
       <td>MAJOR</td>
       <td>NORMAL</td>
       <td>TO</td>
-      <td>1986-06-05T02:00:00.000+0200</td>
-      <td>Tan</td>
-      <td>FR</td>
-      <td>fr</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>i</td>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BD18Q2_FR_JY8YP4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2017-12-22T06:18:59Z</td>
-      <td>C032808108</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>9225239026</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td>4</td>
       <td>2018-08-20T08:31:09Z</td>
-      <td>NaN</td>
       <td>EMAIL</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -14142,15 +13669,9 @@ dtype: object</pre>
       <td>NaN</td>
       <td>900291830</td>
       <td>France_all</td>
-      <td>fr_all@newsletter.swarovski-newsletter.com</td>
       <td>241</td>
       <td>General</td>
       <td>2700096897</td>
-      <td>180820_fr_FR_Outlet18_Outlet2H_Outlet_All_no_TestN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>OUTLET / Trouvez le look estival parfait</td>
-      <td>NaN</td>
       <td>normal</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -14158,55 +13679,104 @@ dtype: object</pre>
       <td>2018-08-20T08:31:09Z</td>
       <td>SentToMTA</td>
       <td>2018-08-20T08:31:09Z</td>
-      <td>NaN</td>
       <td>MAJOR</td>
       <td>NORMAL</td>
       <td>TO</td>
-      <td>1986-06-05T02:00:00.000+0200</td>
-      <td>Tan</td>
-      <td>FR</td>
-      <td>fr</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>i</td>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>BD18Q2_FR_JY8YP4</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2017-12-22T06:18:59Z</td>
-      <td>C032808108</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
     </tr>
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="column-names">column names<a class="anchor-link" href="#column-names">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>sentToMTA.Timestamp                         object
+sentToMTA.SendoutChannel                    object
+skip.Timestamp                              object
+skip.Category                               object
+bounce.Timestamp                            object
+bounce.Category                             object
+render.Timestamp                            object
+render.GeoLocation.ISOCountryCode           object
+render.GeoLocation.RegionCode               object
+render.GeoLocation.City                     object
+render.GeoLocation.Latitude                float64
+render.GeoLocation.Longitude               float64
+render.UserAgent.Platform                   object
+render.UserAgent.OperatingSystemName        object
+render.UserAgent.OperatingSystemVersion     object
+render.UserAgent.ClientName                 object
+render.UserAgent.ClientVersion              object
+render.UserAgent.RawString                  object
+click.Timestamp                             object
+click.Link.Id                              float64
+click.Link.Category.Id                     float64
+click.Link.Category.Name                    object
+click.Link.Url                              object
+click.Link.Type                             object
+click.GeoLocation.ISOCountryCode            object
+click.GeoLocation.RegionCode                object
+click.GeoLocation.City                      object
+click.GeoLocation.Latitude                 float64
+click.GeoLocation.Longitude                float64
+click.UserAgent.Platform                    object
+click.UserAgent.OperatingSystem             object
+click.UserAgent.OperatingSystemVersion      object
+click.UserAgent.ClientName                  object
+click.UserAgent.ClientVersion               object
+click.UserAgent.RawString                   object
+unsubscribe.Timestamp                       object
+group.Id                                     int64
+group.Name                                  object
+group.Category.Id                            int64
+group.Category.Name                         object
+message.Id                                   int64
+message.Type                                object
+message.variation.Id                        object
+selection.Id                               float64
+selection.Name                              object
+record.Timestamp                            object
+record.Type                                 object
+record.sentToMTA.Timestamp                  object
+sendout.Type                                object
+sendout.AddresseeRole                       object
+sendout.RecipientType                       object
+dtype: object</pre>
 </div>
 
 </div>
@@ -14237,7 +13807,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -14290,57 +13860,42 @@ dtype: object</pre>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>sentToMTA.Timestamp</td>
       <td>8042</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>skip.Timestamp</td>
       <td>214</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>bounce.Timestamp</td>
       <td>2</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>feedback.Timestamp</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
+      <td>3</td>
       <td>render.Timestamp</td>
       <td>1385</td>
     </tr>
     <tr>
-      <th>5</th>
+      <td>4</td>
       <td>click.Timestamp</td>
       <td>349</td>
     </tr>
     <tr>
-      <th>6</th>
+      <td>5</td>
       <td>unsubscribe.Timestamp</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>forward.Timestamp</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>conversion.cp.Timestamp</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>9</th>
+      <td>6</td>
       <td>record.Timestamp</td>
       <td>10000</td>
     </tr>
     <tr>
-      <th>10</th>
+      <td>7</td>
       <td>record.sentToMTA.Timestamp</td>
       <td>10000</td>
     </tr>
